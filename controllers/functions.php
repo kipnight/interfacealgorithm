@@ -87,7 +87,7 @@ class alpha {
     
       public function create_message_center() {
 
-             echo json_encode(array('success' => 1, 'message' => 'message ilifika yawa'));
+           
         
            
     }
