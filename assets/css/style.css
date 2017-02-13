@@ -1,0 +1,25 @@
+ /* CSS Document */
+body{
+	padding-top: 70px; 
+	padding-bottom: 70px;
+	background:url(../img/mygrid.png) repeat;
+}
+
+#main_cont{
+	
+	
+}
+#content{
+	min-height:340px;
+	max-height:350px;
+	overflow:auto;
+	padding:10px;
+	/*border:solid 1px #08c;*/
+}
+.line{
+	border:solid 2px #101010;
+}
+.login_nav{
+	background-color: #1E90FF;
+
+}
