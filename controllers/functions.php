@@ -28,7 +28,7 @@ class alpha {
         $username = $this->clean($username);
         $password = $this->clean($password);
 
-        $sql = "SELECT * FROM tb_admin WHERE username='" . $username . "'";
+        $sql = "SELECT * FROM users WHERE username='" . $username . "'";
 
         $query = mysql_query($sql) or die(mysql_error());
 
@@ -75,7 +75,7 @@ class alpha {
 
     public function lastloggedin($userid) {
 
-        $sql = "UPDATE  tb_admin SET  last_login =  NOW() WHERE id = '$userid'";
+        $sql = "UPDATE  users SET  last_login =  NOW() WHERE id = '$userid'";
         $query = mysql_query($sql, $this->link) or die(mysql_error());
         if (mysql_affected_rows($this->link) == 1) {
 
