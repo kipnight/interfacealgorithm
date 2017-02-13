@@ -23,7 +23,7 @@ $(document).ready(function () {
 
             $.ajax({
                 type: "POST",
-                url: "../controllers/load.php",
+                url: "../controllers/processor.php",
                 data: {page: $pageRoot, tag: tag}, 
                 dataType: "html",
                 success: function (msg) {
@@ -32,6 +32,20 @@ $(document).ready(function () {
                         $('#main_content').html(msg);
                         //  $('#main-content section').hide().fadeIn();
                     } else {
+                        
+                        
+                        switch (data.success) {
+                    case 1:
+                         $('#main_content').html(data.msg).show('slow');
+                        
+                                break;
+                    case 0:
+                        $alertdiv
+                                .removeClass()
+                                .addClass('alert alert-danger')
+                                .html('<span class="glyphicon glyphicon-thumbs-down"></span> ' + data.message).show('slow');
+                        break;
+                }
 
                         $('#main_content').html('not working kabisa');
                     }
