@@ -86,8 +86,8 @@ class alpha {
     }
 
     public function create_message_center() {
-        
-        $html_script ='  <!--tab-links-->
+
+        $html_script = '  <!--tab-links-->
 
                 <div class="tab-links">
                     <ul id="myTab" class="nav nav-tabs">  
@@ -156,14 +156,14 @@ class alpha {
                     </div><!--tab-pane message_template-->
                 </div><!--tab-content myTabContent-->
 ';
-        
+
         echo $html_script;
     }
-    
-    public function create_contact_center(){
-        
-        
-echo ' <div class="tab-links">
+
+    public function create_contact_center() {
+
+
+        echo ' <div class="tab-links">
 
                     <ul id="myTab" class="nav nav-tabs">  
                     <li class="active"><a href="#view_contacts" data-toggle="tab">View Contacts </a> </li>    
@@ -440,15 +440,13 @@ echo ' <div class="tab-links">
     }
 
     public function create_task_center() {
-        
+
         echo 'creating task center';
-        
     }
 
     public function create_others_center() {
-        
+
         echo 'creating other centers';
-        
     }
 
 }
