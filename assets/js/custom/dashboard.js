@@ -1,10 +1,17 @@
 $(document).ready(function () {
 
+
+
+
+    initialize_dashboard();
+
+
+
     $('#menu_div  ul li a').click(function () {
 
         var $linkClicked = $(this).attr('href');
-        
-      
+
+
         var tag = $(this).attr('id');
 
         document.location.hash = $linkClicked;
@@ -12,7 +19,7 @@ $(document).ready(function () {
         $myvar = document.location.hash;
 
         var $pageRoot = $linkClicked.replace('#page', '');
-        
+
 
 
         if (!$(this).hasClass("active")) {
@@ -24,7 +31,7 @@ $(document).ready(function () {
             $.ajax({
                 type: "POST",
                 url: "../controllers/processor.php",
-                data: {page: $pageRoot, tag: tag}, 
+                data: {page: $pageRoot, tag: tag},
                 dataType: "html",
                 success: function (msg) {
                     if (parseInt(msg) !== 0)
@@ -32,20 +39,20 @@ $(document).ready(function () {
                         $('#main_content').html(msg);
                         //  $('#main-content section').hide().fadeIn();
                     } else {
-                        
-                        
+
+
                         switch (data.success) {
-                    case 1:
-                         $('#main_content').html(data.msg).show('slow');
-                        
+                            case 1:
+                                $('#main_content').html(data.msg).show('slow');
+
                                 break;
-                    case 0:
-                        $alertdiv
-                                .removeClass()
-                                .addClass('alert alert-danger')
-                                .html('<span class="glyphicon glyphicon-thumbs-down"></span> ' + data.message).show('slow');
-                        break;
-                }
+                            case 0:
+                                $alertdiv
+                                        .removeClass()
+                                        .addClass('alert alert-danger')
+                                        .html('<span class="glyphicon glyphicon-thumbs-down"></span> ' + data.message).show('slow');
+                                break;
+                        }
 
                         $('#main_content').html('not working kabisa');
                     }
@@ -60,3 +67,41 @@ $(document).ready(function () {
 
     });
 });
+
+
+function initialize_dashboard (){
+    
+    $tag ='messages'
+    $.ajax({
+        
+        
+        type: "POST",
+        url: "../controllers/processor.php",
+        data: {page: $pageRoot, tag: tag},
+        dataType: "html",
+        success: function (msg) {
+
+
+            switch (data.success) {
+                case 1:
+                    $('#main_content').html(data.msg).show('slow');
+
+                    break;
+                case 0:
+                    $alertdiv
+                            .removeClass()
+                            .addClass('alert alert-danger')
+                            .html('<span class="glyphicon glyphicon-thumbs-down"></span> ' + data.message).show('slow');
+                    break;
+            }
+
+
+
+        }
+
+
+    });
+
+        $tag='';
+    
+}
